@@ -22,6 +22,8 @@ jobs:
         env:
           MAVEN_USERNAME: ${{ secrets.OSSRH_USERNAME }}
           MAVEN_PASSWORD: ${{ secrets.OSSRH_TOKEN }}
+          EMBOLD_URL: ${{ secrets.EMBOLD_URL }}
+          EMBOLD_TOKEN: ${{ secrets.EMBOLD_TOKEN }}
         run: mvn --batch-mode clean deploy --file pom.xml
 
   release:
@@ -79,6 +81,8 @@ jobs:
           GITHUB_USER: 'github-actions'
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GPG_SECRET_KEY_PASSWORD: ${{ secrets.GPG_SECRET_KEY_PASSWORD }}
+          EMBOLD_URL: ${{ secrets.EMBOLD_URL }}
+          EMBOLD_TOKEN: ${{ secrets.EMBOLD_TOKEN }}
         run: |
           mvn \
             --no-transfer-progress \
@@ -93,6 +97,8 @@ jobs:
           MAVEN_USERNAME: ${{ secrets.OSSRH_USERNAME }}
           MAVEN_PASSWORD: ${{ secrets.OSSRH_TOKEN }}
           GPG_SECRET_KEY_PASSWORD: ${{ secrets.GPG_SECRET_KEY_PASSWORD }}
+          EMBOLD_URL: ${{ secrets.EMBOLD_URL }}
+          EMBOLD_TOKEN: ${{ secrets.EMBOLD_TOKEN }}
         run: |
           mvn \
             --no-transfer-progress \
