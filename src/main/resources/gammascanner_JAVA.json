@@ -1,0 +1,41 @@
+{
+  "gammaAccess": {
+    "url": "",
+    "token": ""
+  },
+  "repositories": [
+    {
+      "repository": {
+        "uid": "",
+        "projectName": "",
+        "sources": {
+          "baseDir": "",
+          "exclusions": [
+            
+          ]
+        }
+      },
+      "dataDir": "",
+      "modules": {
+        "codeissues": [
+          {
+            "name": "pmd"
+          },
+          {
+            "name": "gamma_java"
+          }
+        ],
+        "relevance": [
+          {
+            "name": "relevance",
+            "enabled": true,
+            "config": {
+              "options": [
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
