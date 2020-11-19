@@ -15,8 +15,6 @@ public class EmboldScanMojoTest extends EmboldAbstractMojoTestCase {
         // analysis results created by unit tests
         emboldMojo.setEmboldHostUrl(emboldUrl());
         emboldMojo.setEmboldUserToken(emboldToken());
-        // TODO Remove this
-        emboldMojo.setEmboldPublishPort(35432);
         return emboldMojo;
     }
 
