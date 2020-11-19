@@ -56,7 +56,6 @@
         <tag>HEAD</tag>
     </scm>
 
-
     <prerequisites>
         <maven>${maven.version}</maven>
     </prerequisites>
@@ -163,7 +162,7 @@
         <dependency>
             <groupId>io.embold.scan</groupId>
             <artifactId>scanner-sync</artifactId>
-            <version>1.0.1</version>
+            <version>1.0.2</version>
         </dependency>
 
     </dependencies>

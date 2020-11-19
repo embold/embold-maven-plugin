@@ -65,7 +65,7 @@ public class ScanMojo extends AbstractMojo {
 
             if (StringUtils.isEmpty(emboldScannerLocation)) {
                 emboldScannerLocation = mavenSession.getLocalRepository().getBasedir() + SEP +
-                        "io" + SEP + "embold" + SEP + "scan" + SEP + "mvn" + SEP + "embold-maven-plugin";
+                        "io" + SEP + "embold" + SEP + "scan" + SEP + "embold-maven-plugin";
                 super.getLog().info("Resolved scanner location: " + emboldScannerLocation);
             } else {
                 super.getLog().info("User-specified scanner location: " + emboldScannerLocation);
