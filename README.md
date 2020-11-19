@@ -12,9 +12,10 @@ Include the Embold maven plugin in your maven builds for design and code quality
 `mvn io.embold.scan:embold-maven-plugin:embold -Dembold.host.url=foo -Dembold.user.token=bar`
 
 where:
-* *embold.host.url* is your Embold Server Url
-* *embold.user.token* is your Embold Access Token
-
+* *embold.host.url* - Your Embold Server Url
+* *embold.user.token* - Embold Access Token
+* *embold.scanner.location* (optional) - Location where the Embold scanner will be auto-downloaded. By default, it is downloaded inside the embold-maven-plugin directory in your local repository.
+* *embold.scanner.update" (optional) - Set to `false` if you want to disable auto-update of the Embold scanners
 More info on Embold Access Token here: https://docs.embold.io/gamma-access-token-gat/#gamma-access-token-gat
 
 The Embold plugin will create a repository on the Embold Server with the name <groupId>:<artifactId> if it doesn't already exist.
