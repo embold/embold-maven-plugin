@@ -22,9 +22,9 @@ import io.embold.scan.mvn.util.ProcessExec;
  */
 public class EmboldScanner {
 
-    private String url;
-    private String token;
-    private Log logger;
+    private final String url;
+    private final String token;
+    private final Log logger;
 
     public EmboldScanner(Log logger, String url, String token) {
         this.logger = logger;

@@ -52,7 +52,7 @@ public class ScanMojo extends AbstractMojo {
      * Enable/Disable scanner update
      */
     @Parameter(property = "embold.scanner.update", required = false)
-    private boolean emboldScannerUpdate = Boolean.TRUE;
+    private final boolean emboldScannerUpdate = Boolean.TRUE;
 
     @Component
     MavenSession mavenSession;

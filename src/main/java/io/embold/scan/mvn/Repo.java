@@ -5,32 +5,29 @@ import org.apache.maven.plugin.MojoExecutionException;
 
 public class Repo {
 
-	private String repoUid;
-	private String repoName;
-	private String repoType = "remote";
-	private String repoLanguage = "JAVA"; // TODO dynamically selected
-	private String accountId = "";
+    private final String repoUid;
+    private final String repoName;
 
-	public Repo(String repoUid, String repoName) {
-		super();
-		this.repoUid = repoUid;
-		this.repoName = repoName;
-	}
+    public Repo(String repoUid, String repoName) {
+        super();
+        this.repoUid = repoUid;
+        this.repoName = repoName;
+    }
 
-	public String getRepoUid() {
-		return repoUid;
-	}
+    public String getRepoUid() {
+        return repoUid;
+    }
 
-	public String getRepoName() {
-		return repoName;
-	}
+    public String getRepoName() {
+        return repoName;
+    }
 
-	@Override
-	public String toString() {
-		return "Repo [uid=" + repoUid + ", name=" + repoName + "]";
-	}
-	
-	public String jsonString() throws MojoExecutionException {
-		return JsonBuilder.repoData(this);
-	}
+    @Override
+    public String toString() {
+        return "Repo [uid=" + repoUid + ", name=" + repoName + "]";
+    }
+
+    public String jsonString() throws MojoExecutionException {
+        return JsonBuilder.repoData(this);
+    }
 }
