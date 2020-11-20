@@ -7,6 +7,7 @@ public class Repo {
 
     private final String repoUid;
     private final String repoName;
+    private final String repoType = "remote";
 
     public Repo(String repoUid, String repoName) {
         super();
@@ -21,6 +22,8 @@ public class Repo {
     public String getRepoName() {
         return repoName;
     }
+
+    public String getRepoType() { return repoType; }
 
     @Override
     public String toString() {
