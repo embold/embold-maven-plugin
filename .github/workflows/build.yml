@@ -18,15 +18,13 @@ jobs:
           server-id: ossrh
           server-username: MAVEN_USERNAME
           server-password: MAVEN_PASSWORD
-      - name: Build
+      - name: Build & Scan
         env:
           MAVEN_USERNAME: ${{ secrets.OSSRH_USERNAME }}
           MAVEN_PASSWORD: ${{ secrets.OSSRH_TOKEN }}
           EMBOLD_URL: https://oss.emboldci.dev
           EMBOLD_TOKEN: ${{ secrets.EMBOLD_OSS_SCAN_TOKEN }}
-        run: mvn --batch-mode clean deploy --file pom.xml
-      - name: Scan
-        run: mvn --batch-mode io.embold.scan:embold-maven-plugin:embold -Dembold.host.url=https://oss.emboldci.dev -Dembold.user.token=${{ secrets.EMBOLD_OSS_SCAN_TOKEN }}
+        run: mvn --batch-mode clean deploy io.embold.scan:embold-maven-plugin:embold -Dembold.host.url=https://oss.emboldci.dev -Dembold.user.token=${{ secrets.EMBOLD_OSS_SCAN_TOKEN }} --file pom.xml
 
   release:
     runs-on: ubuntu-latest
