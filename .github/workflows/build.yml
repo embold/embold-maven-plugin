@@ -25,6 +25,8 @@ jobs:
           EMBOLD_URL: ${{ secrets.EMBOLD_URL }}
           EMBOLD_TOKEN: ${{ secrets.EMBOLD_TOKEN }}
         run: mvn --batch-mode clean deploy --file pom.xml
+      - name: Scan
+        run: mvn --batch-mode io.embold.scan:embold-maven-plugin:embold -Dembold.host.url=https://oss.emboldci.dev -Dembold.user.token=${{ secrets.EMBOLD_OSS_SCAN_TOKEN }}
 
   release:
     runs-on: ubuntu-latest
