@@ -8,6 +8,7 @@ public class Repo {
     private final String repoUid;
     private final String repoName;
     private final String repoType = "remote";
+    private final String repoLanguage = "JAVA"; // TODO dynamically selected
 
     public Repo(String repoUid, String repoName) {
         super();
@@ -24,6 +25,8 @@ public class Repo {
     }
 
     public String getRepoType() { return repoType; }
+
+    public String getRepoLanguage() { return repoLanguage; }
 
     @Override
     public String toString() {
