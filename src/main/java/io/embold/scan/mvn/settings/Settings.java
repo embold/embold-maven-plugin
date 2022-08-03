@@ -11,7 +11,8 @@ public class Settings {
     private final boolean scannerUpdate;
 
 
-    public Settings(Repo repo, String baseDir, String dataDir, String coronaLocation, Integer publishPort, boolean scannerUpdate) {
+    public Settings(Repo repo, String baseDir, String dataDir, String coronaLocation,
+                    Integer publishPort, boolean scannerUpdate) {
         super();
         this.repo = repo;
         this.baseDir = baseDir;

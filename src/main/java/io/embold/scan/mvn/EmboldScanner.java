@@ -1,14 +1,10 @@
 package io.embold.scan.mvn;
 
 import java.io.File;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
-import io.embold.scan.SyncException;
-import io.embold.scan.SyncOpts;
-import io.embold.scan.SyncSession;
+import io.embold.scan.*;
+import io.embold.scan.Package;
 import io.embold.scan.exec.OsCheck;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.logging.Log;
@@ -44,13 +40,23 @@ public class EmboldScanner {
         runScan(settings, scanSettingsJson);
     }
 
-    private void ensureScanner(Settings settings) {
+    private void ensureScanner(Settings settings) throws MojoExecutionException {
         if (settings.isScannerUpdate()) {
             logger.info("Checking for scanner updates");
-            SyncOpts syncOpts = new SyncOpts(this.url, this.token, settings.getCoronaLocation());
-            SyncSession session = new SyncSession(syncOpts);
+            Set<Package> packages = new HashSet<>();
+            // TODO Packages should be dynamic based on detected languages
+            packages.add(Package.JAVA);
+
+            ModularSyncOpts syncOpts = null;
+            try {
+                syncOpts = new ModularSyncOpts(this.url, this.token, settings.getCoronaLocation(), packages);
+            } catch (SyncException e) {
+                throw new MojoExecutionException("Error while configuring the plugin", e);
+            }
 
             try {
+
+                ModularSyncSession session = new ModularSyncSession(syncOpts);
                 session.run();
             } catch (SyncException e) {
                 logger.error("Error updating embold scanner package. Attempting to scan with existing version", e);
