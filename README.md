@@ -25,6 +25,8 @@ You can then link to a Project on Embold in order to view the scan results.
 * JDK 1.8 or higher
 * Embold on-premise server instance (version 1.8.7.0 or higher)
 
+
+
 ## Known Issues and Limitations
 ##### 1. Aborting the maven build doesn't always abort the scan on Windows
 For now, you may need to manually kill the Java process if you abort on Windows
