@@ -3,23 +3,21 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.embold.scan.mvn</groupId>
+    <groupId>com.embold.scan</groupId>
     <artifactId>test-embold-pom</artifactId>
-    <version>0.7.0-SNAPSHOT</version>
+    <version>1.0.5-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>Test Embold Scan Mojo</name>
 
     <properties>
-        <embold.url>embold-url</embold.url>
-        <embold.token>embold-token</embold.token>
+        <embold.url>your-embold-server-url</embold.url>
+        <embold.token>your-embold-access-token</embold.token>
     </properties>
 
     <build>
         <plugins>
             <plugin>
-                <groupId>com.embold.scan.mvn</groupId>
                 <artifactId>embold-maven-plugin</artifactId>
-                <version>0.7.0-SNAPSHOT</version>
                 <configuration>
                     <emboldHostUrl>${embold.url}</emboldHostUrl>
                     <emboldUserToken>${embold.token}</emboldUserToken>

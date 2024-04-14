@@ -30,7 +30,7 @@ public class Repo {
 
     @Override
     public String toString() {
-        return "Repo [uid=" + repoUid + ", name=" + repoName + "]";
+        return "Repository [uid=" + repoUid + ", name=" + repoName + "]";
     }
 
     public String jsonString() throws MojoExecutionException {

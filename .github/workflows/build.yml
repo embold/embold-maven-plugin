@@ -14,7 +14,7 @@ jobs:
       - name: Set up Maven Repository
         uses: actions/setup-java@v1
         with:
-          java-version: 1.8
+          java-version: 11
           server-id: ossrh
           server-username: MAVEN_USERNAME
           server-password: MAVEN_PASSWORD
@@ -22,9 +22,8 @@ jobs:
         env:
           MAVEN_USERNAME: ${{ secrets.OSSRH_USERNAME }}
           MAVEN_PASSWORD: ${{ secrets.OSSRH_TOKEN }}
-          EMBOLD_URL: https://oss.emboldci.dev
-          EMBOLD_TOKEN: ${{ secrets.EMBOLD_OSS_SCAN_TOKEN }}
-        run: mvn --batch-mode clean deploy io.embold.scan:embold-maven-plugin:embold -Dembold.host.url=https://oss.emboldci.dev -Dembold.user.token=${{ secrets.EMBOLD_OSS_SCAN_TOKEN }} --file pom.xml
+          embold.user.token: ${{ secrets.EMBOLD_OSS_SCAN_TOKEN }}
+        run: mvn --batch-mode clean deploy io.embold.scan:embold-maven-plugin:embold -Dembold.host.url=https://tester.emboldci.dev -Dembold.user.token=${{ secrets.EMBOLD_OSS_SCAN_TOKEN }} --file pom.xml
 
   release:
     runs-on: ubuntu-latest
@@ -36,7 +35,7 @@ jobs:
       - name: Set up Maven Repository
         uses: actions/setup-java@v1
         with:
-          java-version: 1.8
+          java-version: 11
       - name: maven-settings-xml-action
         uses: whelk-io/maven-settings-xml-action@v11
         with:
@@ -81,8 +80,8 @@ jobs:
           GITHUB_USER: 'github-actions'
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GPG_SECRET_KEY_PASSWORD: ${{ secrets.GPG_SECRET_KEY_PASSWORD }}
-          EMBOLD_URL: https://oss.emboldci.dev
-          EMBOLD_TOKEN: ${{ secrets.EMBOLD_OSS_SCAN_TOKEN }}
+          embold.host.url: https://tester.emboldci.dev
+          embold.user.token: ${{ secrets.EMBOLD_OSS_SCAN_TOKEN }}
         run: |
           mvn \
             --no-transfer-progress \
@@ -97,8 +96,8 @@ jobs:
           MAVEN_USERNAME: ${{ secrets.OSSRH_USERNAME }}
           MAVEN_PASSWORD: ${{ secrets.OSSRH_TOKEN }}
           GPG_SECRET_KEY_PASSWORD: ${{ secrets.GPG_SECRET_KEY_PASSWORD }}
-          EMBOLD_URL: https://oss.emboldci.dev
-          EMBOLD_TOKEN: ${{ secrets.EMBOLD_OSS_SCAN_TOKEN }}
+          embold.host.url: https://tester.emboldci.dev
+          embold.user.token: ${{ secrets.EMBOLD_OSS_SCAN_TOKEN }}
         run: |
           mvn \
             --no-transfer-progress \
