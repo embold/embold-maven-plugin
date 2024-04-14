@@ -6,7 +6,7 @@
 
     <groupId>io.embold.scan</groupId>
     <artifactId>embold-maven-plugin</artifactId>
-    <version>1.0.6-SNAPSHOT</version>
+    <version>1.0.7-SNAPSHOT</version>
     <packaging>maven-plugin</packaging>
 
     <name>embold-maven-plugin</name>
