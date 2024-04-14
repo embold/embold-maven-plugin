@@ -91,14 +91,9 @@ public abstract class EmboldAbstractMojoTestCase extends AbstractMojoTestCase {
     protected String emboldUrl() {
         String url = System.getProperty("embold.host.url");
         if(StringUtils.isEmpty(url)) {
-            System.out.println("No property embold.host.url");
             url = System.getenv("embold.host.url");
-            if(StringUtils.isEmpty(url)) {
-                System.out.println("No env var embold.host.url");
-            }
         }
 
-        System.out.println("url: " + url);
         return url;
     }
 
