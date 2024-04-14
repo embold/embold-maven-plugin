@@ -13,24 +13,36 @@ import org.apache.maven.execution.MavenSession;
 import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugins.annotations.Component;
-import org.apache.maven.plugins.annotations.Mojo;
 import org.apache.maven.plugins.annotations.Parameter;
-import org.apache.maven.plugins.annotations.ResolutionScope;
 import org.apache.maven.project.MavenProject;
 
 /**
  * Goal which scans the maven project with embold
+ *
+ * @goal embold
+ *
+ * @requiresDependencyResolution test
+ *
+ * @aggregator
+ *
  */
-@Mojo(name = "embold", requiresDependencyResolution = ResolutionScope.TEST, aggregator = true)
 public class ScanMojo extends AbstractMojo {
+
     /**
-     * Embold Server URL
+     * Embold Host URL
+     *
+     * @parameter name="emboldHostUrl" property="embold.host.url""
+     * @readonly
+     * @required
      */
-    @Parameter(property = "embold.host.url", required = true)
     private String emboldHostUrl;
 
     /**
-     * Embold Token
+     * Embold Access Token
+     *
+     * @parameter name="emboldUserToken" property="embold.user.token""
+     * @readonly
+     * @required
      */
     @Parameter(property = "embold.user.token", required = true)
     private String emboldUserToken;
@@ -54,7 +66,10 @@ public class ScanMojo extends AbstractMojo {
     @Parameter(property = "embold.scanner.update", required = false)
     private final boolean emboldScannerUpdate = Boolean.TRUE;
 
-    @Component
+    /**
+     * @parameter default-value="${session}"
+     * @readonly
+     */
     MavenSession mavenSession;
 
     private static final String SEP = File.separator;
@@ -93,6 +108,9 @@ public class ScanMojo extends AbstractMojo {
                     FilenameUtils.normalize(topLevelProject.getBasedir() + File.separator + ".embold_data"),
                     emboldScannerLocation, emboldPublishPort, emboldScannerUpdate);
             scanner.scan(settings);
+            getLog().info("----------------------------------------------------------------------------");
+            getLog().info("Results published at: " + emboldHostUrl + ", " + repo);
+            getLog().info("----------------------------------------------------------------------------");
         } finally {
             Unirest.shutDown();
         }

@@ -21,7 +21,14 @@ import org.eclipse.aether.DefaultRepositorySystemSession;
 import org.eclipse.aether.internal.impl.SimpleLocalRepositoryManagerFactory;
 import org.eclipse.aether.repository.LocalRepository;
 
+
 public abstract class EmboldAbstractMojoTestCase extends AbstractMojoTestCase {
+
+    protected void setUp() throws Exception
+    {
+        // required for mojo lookups to work
+        super.setUp();
+    }
 
     protected MavenSession newMavenSession() {
         try {
@@ -76,23 +83,24 @@ public abstract class EmboldAbstractMojoTestCase extends AbstractMojoTestCase {
         ProjectBuildingRequest buildingRequest = newMavenSession().getProjectBuildingRequest();
         ProjectBuilder projectBuilder = lookup(ProjectBuilder.class);
         MavenProject project = projectBuilder.build(pom, buildingRequest).getProject();
-
-        return lookupConfiguredMojo(project, goal);
+        ScanMojo mojo = (ScanMojo) lookupConfiguredMojo(project, goal);
+        mojo.mavenSession = newMavenSession(project);
+        return mojo;
     }
 
     protected String emboldUrl() {
-        String url = System.getProperty("EMBOLD_URL");
+        String url = System.getProperty("embold.host.url");
         if(StringUtils.isEmpty(url)) {
-            url = System.getenv("EMBOLD_URL");
+            url = System.getenv("embold.host.url");
         }
 
         return url;
     }
 
     protected String emboldToken() {
-        String token = System.getProperty("EMBOLD_TOKEN");
+        String token = System.getProperty("embold.user.token");
         if(StringUtils.isEmpty(token)) {
-            token = System.getenv("EMBOLD_TOKEN");
+            token = System.getenv("embold.user.token");
         }
 
         return token;

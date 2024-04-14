@@ -1,6 +1,6 @@
 # Embold Maven Plugin
 Embold scanner for Maven builds
-![build](https://github.com/embold/embold-maven-plugin/workflows/build/badge.svg?branch=development)
+![build](https://github.com/embold/embold-maven-plugin/actions/workflows/build.yml/badge.svg?branch=development)
 [![Maven Central](https://img.shields.io/maven-central/v/io.embold.scan/embold-maven-plugin.svg?label=Maven%20Central)](https://search.maven.org/search?q=g:%22io.embold.scan%22%20AND%20a:%22embold-maven-plugin%22)
 
 Maven plugin for Embold static analysis
@@ -24,6 +24,8 @@ You can then link to a Project on Embold in order to view the scan results.
 ## Requirements
 * JDK 1.8 or higher
 * Embold on-premise server instance (version 1.8.7.0 or higher)
+
+
 
 ## Known Issues and Limitations
 ##### 1. Aborting the maven build doesn't always abort the scan on Windows
