@@ -1,6 +1,6 @@
 # Embold Maven Plugin
 Embold scanner for Maven builds
-![build](https://github.com/embold/embold-maven-plugin/workflows/build/badge.svg?branch=development)
+![build](https://github.com/embold/embold-maven-plugin/actions/workflows/build.yml/badge.svg?branch=development)
 [![Maven Central](https://img.shields.io/maven-central/v/io.embold.scan/embold-maven-plugin.svg?label=Maven%20Central)](https://search.maven.org/search?q=g:%22io.embold.scan%22%20AND%20a:%22embold-maven-plugin%22)
 
 Maven plugin for Embold static analysis
