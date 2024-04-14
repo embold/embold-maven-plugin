@@ -87,7 +87,7 @@ jobs:
           mvn \
             --no-transfer-progress \
             --batch-mode \
-            -Dembold.host.url=https://tester.emboldci.dev -Dembold.user.token=${{ secrets.EMBOLD_OSS_SCAN_TOKEN }} \
+            -Darguments="-Dembold.host.url=https://tester.emboldci.dev -Dembold.user.token=${{ secrets.EMBOLD_OSS_SCAN_TOKEN }}" \
             -Dgpg.passphrase=${{ secrets.GPG_SECRET_KEY_PASSWORD }} \
             release:prepare -Prelease
 
