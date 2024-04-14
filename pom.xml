@@ -315,7 +315,38 @@
                         <artifactId>maven-javadoc-plugin</artifactId>
                         <version>3.6.3</version>
                         <configuration>
-                            <additionalparam>-Xdoclint:none</additionalparam>
+                            <tags>
+                                <tag>
+                                    <name>goal</name>
+                                    <placement>a</placement>
+                                    <head>Goal:</head>
+                                </tag>
+                                <tag>
+                                    <name>requiresDependencyResolution</name>
+                                    <placement>a</placement>
+                                    <head>Requires Dependency Resolution:</head>
+                                </tag>
+                                <tag>
+                                    <name>aggregator</name>
+                                    <placement>a</placement>
+                                    <head>Aggregator:</head>
+                                </tag>
+                                <tag>
+                                    <name>parameter</name>
+                                    <placement>a</placement>
+                                    <head>Parameter:</head>
+                                </tag>
+                                <tag>
+                                    <name>readonly</name>
+                                    <placement>a</placement>
+                                    <head>Read only:</head>
+                                </tag>
+                                <tag>
+                                    <name>required</name>
+                                    <placement>a</placement>
+                                    <head>Required:</head>
+                                </tag>
+                            </tags>
                         </configuration>
                         <executions>
                             <execution>
